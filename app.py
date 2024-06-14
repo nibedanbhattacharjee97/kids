@@ -10,8 +10,8 @@ def combine_sheets(input_file):
 
     # Iterate through each sheet in the Excel file
     for sheet_name in excel_file.sheet_names:
-        # Read the sheet into a DataFrame
-        df = pd.read_excel(excel_file, sheet_name=sheet_name)
+        # Read the sheet into a DataFrame, ignoring additional header rows
+        df = pd.read_excel(excel_file, sheet_name=sheet_name, header=0)
         
         # Append the data to the combined DataFrame
         combined_df = pd.concat([combined_df, df], ignore_index=True)
